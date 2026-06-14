@@ -4,10 +4,9 @@ python-multipart
 pydantic
 PyPDF2
 pdfminer.six
-
 sentence-transformers
 faiss-cpu
 numpy
-
 python-dotenv
 loguru
+langchain-text-splitters
