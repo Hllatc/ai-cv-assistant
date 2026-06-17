@@ -10,3 +10,8 @@ numpy
 python-dotenv
 loguru
 langchain-text-splitters
+sqlalchemy
+psycopg2-binary
+alembic
+python-jose[cryptography]
+passlib[bcrypt]

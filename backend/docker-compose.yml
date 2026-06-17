@@ -3,9 +3,7 @@ version: "3.9"
 services:
 
   backend:
-
     build: .
-
     container_name: ai-cv-backend
 
     ports:
@@ -15,3 +13,28 @@ services:
       - .:/app
 
     restart: unless-stopped
+
+    depends_on:
+      - postgres
+
+    environment:
+      DATABASE_URL: postgresql+psycopg2://cvuser:password@postgres:5432/cvassistant
+
+  postgres:
+    image: postgres:16
+
+    container_name: ai-cv-postgres
+
+    environment:
+      POSTGRES_USER: cvuser
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: cvassistant
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
